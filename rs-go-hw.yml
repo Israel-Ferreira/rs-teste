@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+
+metadata:
+  name: go-replicaset
+  labels:
+    app: backend
+
+spec:
+  template:
+    metadata:
+      name: go-hw
+      labels:
+        env: production
+        type: backend
+
+    spec:
+      containers:
+        - name: go-hw-container
+          image: israelsouza17/ifc3-desafio-go:latest
+
+      
+
+  selector:
+    matchLabels:
+      type: backend
+      env: production
+
+
+  replicas: 6
